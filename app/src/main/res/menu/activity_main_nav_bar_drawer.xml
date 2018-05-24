@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/novo_produto"
+            android:title="Novo Produto" />
+        <item
+            android:id="@+id/editar_produto"
+            android:title="Editar Produto" />
+        <item
+            android:id="@+id/novo_pedido"
+            android:title="Novo Pedido" />
+        <item
+            android:id="@+id/editar_pedido"
+            android:title="Editar Pedido" />
+        <item
+            android:id="@+id/finalizar_pedido"
+            android:title="Finalizar Pedido" />
+    </group>
+
+    <item android:title="Compartilhar">
+        <menu>
+            <item
+                android:id="@+id/enviar_pedido"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Share" />
+        </menu>
+    </item>
+
+</menu>

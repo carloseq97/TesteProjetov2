@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish()
             {
                 player.stop();
-                Intent tela = new Intent(MainActivity.this, MainActivity2.class);
+                Intent tela = new Intent(MainActivity.this, MainNavBar.class);
                 startActivity(tela);
+                finish();
             }
         }.start();
     }
