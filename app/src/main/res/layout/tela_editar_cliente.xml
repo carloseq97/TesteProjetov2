@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaNovoProduto">
+    tools:context=".TelaEditarCliente">
 
     <TextView
         android:id="@+id/textView2"
@@ -13,7 +13,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="116dp"
-        android:text="Nome do Produto"
+        android:text="Nome do Cliente"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_EditPro_NomeProduto"
+        android:id="@+id/edt_EditCli_NomeCliente"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_marginEnd="37dp"
@@ -35,35 +35,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/chb_EditPro_Unidade"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="240dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Unidade"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/chb_EditPro_Caixa"
-        app:layout_constraintHorizontal_bias="0.268"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/chb_EditPro_Caixa"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="240dp"
-        android:layout_marginEnd="36dp"
-        android:text="Caixa"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <Button
-        android:id="@+id/btn_EditPro_Editar"
+        android:id="@+id/btn_EditCli_Editar"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginBottom="96dp"
@@ -82,7 +55,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="16dp"
-        android:text="Editar Produto"
+        android:text="Editar Cliente"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaNovoProduto">
+    tools:context=".TelaNovoCliente">
 
     <TextView
         android:id="@+id/textView2"
@@ -12,14 +12,14 @@
         android:layout_height="32dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="188dp"
-        android:text="Nome do Produto"
+        android:text="Nome do Cliente"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_NewPro_NomeProduto"
+        android:id="@+id/edt_NewCli_NomeCliente"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="37dp"
@@ -32,32 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <CheckBox
-        android:id="@+id/chb_NewPro_Unidade"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
-        android:layout_marginStart="44dp"
-        android:text="Unidade"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/chb_NewPro_Caixa"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
-        android:layout_marginEnd="40dp"
-        android:text="Caixa"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <Button
-        android:id="@+id/btn_NewPro_AdicionarProduto"
+        android:id="@+id/edt_NewCli_Adicionar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
@@ -73,7 +49,7 @@
         android:layout_marginEnd="68dp"
         android:layout_marginStart="69dp"
         android:layout_marginTop="24dp"
-        android:text="Adicionar Produto"
+        android:text="Adicionar Cliente"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"

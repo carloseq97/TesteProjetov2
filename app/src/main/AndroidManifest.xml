@@ -21,9 +21,11 @@
             android:name=".MainNavBar"
             android:label="@string/title_activity_main_nav_bar"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TelaNovoProdutoActivity" />
+        <activity android:name=".TelaNovoProduto" />
         <activity android:name=".TelaEditarProduto" />
-        <activity android:name=".TelaNovoPedido"></activity>
+        <activity android:name=".TelaNovoPedido" />
+        <activity android:name=".TelaNovoCliente" />
+        <activity android:name=".TelaEditarCliente"></activity>
     </application>
 
 </manifest>
