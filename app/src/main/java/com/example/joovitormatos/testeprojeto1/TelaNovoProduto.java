@@ -13,6 +13,7 @@ public class TelaNovoProduto extends AppCompatActivity {
     public CheckBox chb_NewPro_Caixa;
     public CheckBox chb_NewPro_Unidade;
     public Button btn_NewPro_AdicionarProduto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,4 +39,6 @@ public class TelaNovoProduto extends AppCompatActivity {
 
 
     }
+
+
 }
