@@ -17,6 +17,7 @@ public class TelaNovoPedido extends AppCompatActivity {
     public EditText edt_NewPed_Quantidade;
     public FloatingActionButton fab_NewPed_AddProd;
     public Button btn_NewPed_FinalizarPedido;
+    public Integer quantidade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
