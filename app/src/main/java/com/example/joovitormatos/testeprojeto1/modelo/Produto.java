@@ -7,7 +7,6 @@ public class Produto {
     private String tipo_Produto;
 
     public Produto() {
-
     }
 
     public String getId_Produto() {

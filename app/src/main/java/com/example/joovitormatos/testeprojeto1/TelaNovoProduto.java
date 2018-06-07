@@ -47,7 +47,7 @@ public class TelaNovoProduto extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkBox();
-                if (chbTipoProd == "Unidade" || chbTipoProd == "Caixa") {
+                if (chbTipoProd.equals("Unidade") || chbTipoProd.equals("Caixa")) {
                     loadFirebase();
                     Produto prod = new Produto();
                     prod.setId_Produto(UUID.randomUUID().toString());
@@ -66,7 +66,6 @@ public class TelaNovoProduto extends AppCompatActivity {
         edt_NewPro_NomeProduto.setText("");
         chb_NewPro_Caixa.setChecked(false);
         chb_NewPro_Unidade.setChecked(false);
-
     }
 
     private void checkBox() {
@@ -83,6 +82,4 @@ public class TelaNovoProduto extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
-
-
 }
