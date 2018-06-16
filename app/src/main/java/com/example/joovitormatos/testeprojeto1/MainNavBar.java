@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainNavBar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,18 +82,35 @@ public class MainNavBar extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        //Novos itens
         if (id == R.id.novo_produto) {
             // Handle the camera action
             Intent tela = new Intent(MainNavBar.this, TelaNovoProduto.class);
             startActivity(tela);
-        } else if (id == R.id.editar_produto) {
+        }
+        else if (id == R.id.novo_cliente){
+            Intent tela = new Intent(MainNavBar.this, TelaNovoCliente.class);
+            startActivity(tela);
+        }
+        else if (id == R.id.novo_pedido) {
+            Intent tela = new Intent(MainNavBar.this, TelaNovoPedido.class);
+            startActivity(tela);
+        }
 
-        } else if (id == R.id.novo_pedido) {
-
-        } else if (id == R.id.editar_pedido) {
-
-        } else if (id == R.id.finalizar_pedido) {
-
+        //Editar itens
+        else if (id == R.id.editar_produto) {
+            Intent tela = new Intent(MainNavBar.this, TelaEditarProduto.class);
+            startActivity(tela);
+        }
+        else if (id == R.id.editar_cliente) {
+            Intent tela = new Intent(MainNavBar.this, TelaEditarCliente.class);
+            startActivity(tela);
+        }
+        else if (id == R.id.editar_pedido) {
+            Toast.makeText(MainNavBar.this, "Tela não implementada", Toast.LENGTH_LONG).show();
+        }
+        else if (id == R.id.finalizar_pedido) {
+            Toast.makeText(MainNavBar.this, "Tela não implementada", Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

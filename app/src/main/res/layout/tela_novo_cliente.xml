@@ -12,7 +12,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="188dp"
-        android:text="Nome do Cliente"
+        android:text="@string/nome_do_cliente"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        android:labelFor="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/btn_NewCli_Adicionar"
@@ -38,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:layout_marginEnd="140dp"
-        android:text="Adicionar"
+        android:text="@string/adicionar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -49,7 +51,7 @@
         android:layout_marginEnd="68dp"
         android:layout_marginStart="69dp"
         android:layout_marginTop="24dp"
-        android:text="Adicionar Cliente"
+        android:text="@string/adicionar_cliente"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"

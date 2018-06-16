@@ -11,7 +11,7 @@ import android.widget.Spinner;
 
 public class TelaNovoPedido extends AppCompatActivity {
 
-    public ScrollView srcview_NewPed_Busca;
+    //public ScrollView srcview_NewPed_Busca;
     public Spinner spn_NewPed_Produto;
     public Spinner spn_NewPed_Cliente;
     public EditText edt_NewPed_Quantidade;
@@ -28,7 +28,7 @@ public class TelaNovoPedido extends AppCompatActivity {
     }
 
     private void loadWidgets() {
-        srcview_NewPed_Busca = findViewById(R.id.srcview_NewPed_Busca);
+        //srcview_NewPed_Busca = findViewById(R.id.srcview_NewPed_Busca);
         spn_NewPed_Produto = findViewById(R.id.spn_NewPed_Produto);
         spn_NewPed_Cliente = findViewById(R.id.spn_NewPed_Cliente);
         edt_NewPed_Quantidade = findViewById(R.id.edt_NewPed_Quantidade);

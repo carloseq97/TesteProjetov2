@@ -54,10 +54,11 @@ public class TelaNovoProduto extends AppCompatActivity {
                     prod.setNome_Produto(edt_NewPro_NomeProduto.toString());
                     prod.setTipo_Produto(chbTipoProd);
                     databaseReference.child("Produto").child(prod.getId_Produto()).setValue(prod);
-                    clear();
+
                 } else {
                     Toast.makeText(TelaNovoProduto.this, "Selecione Apenas um tipo de Produto", Toast.LENGTH_LONG).show();
                 }
+                clear();
             }
         });
     }

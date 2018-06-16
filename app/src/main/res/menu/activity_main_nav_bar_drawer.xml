@@ -8,14 +8,22 @@
             android:id="@+id/novo_produto"
             android:title="Novo Produto" />
         <item
-            android:id="@+id/editar_produto"
-            android:title="Editar Produto" />
+            android:id="@+id/novo_cliente"
+            android:title="Novo Cliente"/>
         <item
             android:id="@+id/novo_pedido"
             android:title="Novo Pedido" />
+
+        <item
+            android:id="@+id/editar_produto"
+            android:title="Editar Produto" />
+        <item
+            android:id="@+id/editar_cliente"
+            android:title="Editar Cliente"/>
         <item
             android:id="@+id/editar_pedido"
             android:title="Editar Pedido" />
+
         <item
             android:id="@+id/finalizar_pedido"
             android:title="Finalizar Pedido" />

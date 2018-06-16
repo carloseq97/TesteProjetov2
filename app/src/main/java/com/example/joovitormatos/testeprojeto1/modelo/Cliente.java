@@ -26,6 +26,6 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return id_Cliente + nome_Cliente;
+        return nome_Cliente;
     }
 }
