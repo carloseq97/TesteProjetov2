@@ -41,6 +41,7 @@ public class TelaEditarCliente extends AppCompatActivity {
         loadFirebase();
         eventDatabase();
     }
+    //continue
 
     private void eventDatabase() {
         databaseReference.child("Cliente").addValueEventListener(new ValueEventListener() {
