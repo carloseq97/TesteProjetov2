@@ -20,8 +20,10 @@ public class TelaNovoCliente extends AppCompatActivity {
     public EditText edt_NewCli_NomeCliente;
     public Button btn_NewCli_Adicionar;
 
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    public String nome_cliente;
+
+    private static FirebaseDatabase firebaseDatabase_NewCli;
+    public DatabaseReference databaseReference_NewCli;
 
 
     @Override
@@ -41,14 +43,15 @@ public class TelaNovoCliente extends AppCompatActivity {
         btn_NewCli_Adicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                nome_cliente = String.valueOf(edt_NewCli_NomeCliente.getText().toString());
                 if(Objects.equals(edt_NewCli_NomeCliente.getContentDescription(), "")){
                     Toast.makeText(TelaNovoCliente.this, "CAMPO NOME DO CLIENTE VAZIO", Toast.LENGTH_LONG).show();
                 }else{
                     loadFirebase();
                     Cliente cliente = new Cliente();
                     cliente.setId_Cliente(UUID.randomUUID().toString());
-                    cliente.setNome_Cliente(edt_NewCli_NomeCliente.toString());
-                    databaseReference.child("Cliente").child(cliente.getId_Cliente()).setValue(cliente);
+                    cliente.setNome_Cliente(nome_cliente);
+                    databaseReference_NewCli.child("Cliente").child(cliente.getId_Cliente()).setValue(cliente);
                     clear();
                 }
             }
@@ -60,8 +63,11 @@ public class TelaNovoCliente extends AppCompatActivity {
     }
 
     private void loadFirebase() {
-        FirebaseApp.initializeApp(this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
+        if (firebaseDatabase_NewCli == null) {
+            FirebaseApp.initializeApp(this);
+            firebaseDatabase_NewCli = FirebaseDatabase.getInstance();
+            firebaseDatabase_NewCli.setPersistenceEnabled(true);
+            databaseReference_NewCli = firebaseDatabase_NewCli.getReference();
+        }
     }
 }

@@ -23,11 +23,11 @@ import java.util.List;
 public class TelaEditarCliente extends AppCompatActivity {
 
     public EditText edt_EditCli_NomeCliente;
-    public Button btn_EditCli_Editar;
+    public Button btn_EditCli_Editar, btb_EditCli_Delete;
     public Spinner spn_EditCli_Cliente;
 
-    public FirebaseDatabase firebaseDatabase;
-    public DatabaseReference databaseReference;
+    private static FirebaseDatabase firebaseDatabase_EditCli;
+    public DatabaseReference databaseReference_EditCli;
 
     private List<Cliente> clienteList = new ArrayList<Cliente>();
     private ArrayAdapter<Cliente> clienteArrayAdapter;
@@ -44,7 +44,7 @@ public class TelaEditarCliente extends AppCompatActivity {
     //continue
 
     private void eventDatabase() {
-        databaseReference.child("Cliente").addValueEventListener(new ValueEventListener() {
+        databaseReference_EditCli.child("Cliente").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 clienteList.clear();
@@ -64,15 +64,18 @@ public class TelaEditarCliente extends AppCompatActivity {
     }
 
     private void loadFirebase() {
-        FirebaseApp.initializeApp(TelaEditarCliente.this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        //firebaseDatabase.setPersistenceEnabled(true);
-        databaseReference = firebaseDatabase.getReference();
+        if (firebaseDatabase_EditCli == null) {
+            FirebaseApp.initializeApp(TelaEditarCliente.this);
+            firebaseDatabase_EditCli = FirebaseDatabase.getInstance();
+            firebaseDatabase_EditCli.setPersistenceEnabled(true);
+            databaseReference_EditCli = firebaseDatabase_EditCli.getReference();
+        }
     }
 
     private void loadWidgets() {
         edt_EditCli_NomeCliente = findViewById(R.id.edt_EditCli_NomeCliente);
         btn_EditCli_Editar = findViewById(R.id.btn_EditCli_Editar);
+        btn_EditCli_Editar = findViewById(R.id.btn_EditCli_Deletar);
         spn_EditCli_Cliente = findViewById(R.id.spn_EditCli_Cliente);
     }
 
@@ -80,10 +83,15 @@ public class TelaEditarCliente extends AppCompatActivity {
         btn_EditCli_Editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Atualizar dados de clientes
             }
         });
 
-
+        btn_EditCli_Editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Deletar dados de clientes
+            }
+        });
     }
 }

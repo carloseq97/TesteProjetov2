@@ -35,6 +35,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return id_Produto + nome_Produto + tipo_Produto;
+        return nome_Produto + " - " + tipo_Produto;
     }
 }
