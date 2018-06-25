@@ -24,9 +24,6 @@
             android:id="@+id/editar_pedido"
             android:title="Editar Pedido" />
 
-        <item
-            android:id="@+id/finalizar_pedido"
-            android:title="Finalizar Pedido" />
     </group>
 
     <item android:title="Compartilhar">

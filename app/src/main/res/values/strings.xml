@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">TesteProjeto1</string>
-    <string name="title_activity_main_nav_bar">MainNavBar</string>
+    <string name="app_name">APP Fornecedor</string>
+    <string name="title_activity_main_nav_bar">APP Fornecedor</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -16,4 +16,5 @@
     <string name="caixa">Caixa</string>
     <string name="editar">Editar</string>
     <string name="editar_produto">Editar Produto</string>
+    <string name="title_activity_tela_editar_pedido">Editar Pedido</string>
 </resources>

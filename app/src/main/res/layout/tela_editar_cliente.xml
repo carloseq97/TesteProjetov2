@@ -37,6 +37,8 @@
 
     <Button
         android:id="@+id/btn_EditCli_Editar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:backgroundTint="#0034BB"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginBottom="92dp"
@@ -47,6 +49,8 @@
 
     <Button
         android:id="@+id/btn_EditCli_Deletar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:backgroundTint="#0034BB"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginBottom="92dp"

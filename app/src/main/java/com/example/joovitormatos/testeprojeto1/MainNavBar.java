@@ -25,14 +25,6 @@ public class MainNavBar extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -107,11 +99,10 @@ public class MainNavBar extends AppCompatActivity
             startActivity(tela);
         }
         else if (id == R.id.editar_pedido) {
-            Toast.makeText(MainNavBar.this, "Tela não implementada", Toast.LENGTH_LONG).show();
+            Intent tela = new Intent(MainNavBar.this, TelaEditarPedido.class);
+            startActivity(tela);
         }
-        else if (id == R.id.finalizar_pedido) {
-            Toast.makeText(MainNavBar.this, "Tela não implementada", Toast.LENGTH_LONG).show();
-        }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

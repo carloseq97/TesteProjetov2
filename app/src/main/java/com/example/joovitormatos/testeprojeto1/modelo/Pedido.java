@@ -1,52 +1,52 @@
 package com.example.joovitormatos.testeprojeto1.modelo;
 
 public class Pedido {
-    private String id_Pedido_final;
-    private Integer id_Pedido;
-    private String nome_Produto;
-    private Integer quant_Produto;
-    private String nome_Cliente;
+    private String id_Pedido;
+    private String data_Pedido;
+    private String data_PedidoModificado;
+    private Boolean pedido_Finalizado;
 
     public Pedido() {
     }
 
-    public String getId_Pedido_final() {
-        return id_Pedido_final;
-    }
-
-    public void setId_Pedido_final(String id_Pedido_final) {
-        this.id_Pedido_final = id_Pedido_final;
-    }
-
-    public Integer getId_Pedido() {
+    public String getId_Pedido() {
         return id_Pedido;
     }
 
-    public void setId_Pedido(Integer id_Pedido) {
+    public void setId_Pedido(String id_Pedido) {
         this.id_Pedido = id_Pedido;
     }
 
-    public String getNome_Produto() {
-        return nome_Produto;
+    public String getData_Pedido() {
+        return data_Pedido;
     }
 
-    public void setNome_Produto(String nome_Produto) {
-        this.nome_Produto = nome_Produto;
+    public void setData_Pedido(String data_Pedido) {
+        this.data_Pedido = data_Pedido;
     }
 
-    public Integer getQuant_Produto() {
-        return quant_Produto;
+    public String getData_PedidoModificado() {
+        return data_PedidoModificado;
     }
 
-    public void setQuant_Produto(Integer quant_Produto) {
-        this.quant_Produto = quant_Produto;
+    public void setData_PedidoModificado(String data_PedidoModificado) {
+        this.data_PedidoModificado = data_PedidoModificado;
     }
 
-    public String getNome_Cliente() {
-        return nome_Cliente;
+    public Boolean getPedido_Finalizado() {
+        return pedido_Finalizado;
     }
 
-    public void setNome_Cliente(String nome_Cliente) {
-        this.nome_Cliente = nome_Cliente;
+    public void setPedido_Finalizado(Boolean pedido_Finalizado) {
+        this.pedido_Finalizado = pedido_Finalizado;
+    }
+
+    @Override
+    public String toString() {
+        if (pedido_Finalizado!= null && pedido_Finalizado.equals(false)) {
+            return data_Pedido + " - " + data_PedidoModificado + " - Aberto - ";
+        }else{
+            return data_Pedido + " - " + data_PedidoModificado + " - Finalizado - ";
+        }
     }
 }

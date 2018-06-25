@@ -1,7 +1,16 @@
 package com.example.joovitormatos.testeprojeto1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,16 +25,17 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.UUID;
 
+//public class TelaNovoProduto extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 public class TelaNovoProduto extends AppCompatActivity {
-
     public EditText edt_NewPro_NomeProduto;
     public CheckBox chb_NewPro_Caixa;
     public CheckBox chb_NewPro_Unidade;
     public Button btn_NewPro_AdicionarProduto;
     public String chbTipoProd, nome_produto;
+    public FloatingActionButton fab_NewProd_Voltar;
 
     private static FirebaseDatabase firebaseDatabase_NewPro;
-    DatabaseReference databaseReference_NewPro;
+    private static DatabaseReference databaseReference_NewPro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,40 +43,62 @@ public class TelaNovoProduto extends AppCompatActivity {
         setContentView(R.layout.tela_novo_produto);
         loadWidgets();
         eventWidgets();
-        loadFirebase();
     }
+
+
 
     private void loadWidgets() {
         edt_NewPro_NomeProduto = findViewById(R.id.edt_NewPro_NomeProduto);
         chb_NewPro_Caixa = findViewById(R.id.chb_NewPro_Caixa);
         chb_NewPro_Unidade = findViewById(R.id.chb_NewPro_Unidade);
         btn_NewPro_AdicionarProduto = findViewById(R.id.btn_NewPro_AdicionarProduto);
+        //fab_NewProd_Voltar = findViewById(R.id.fab_NewPed_AddProdVoltar);
+    }
 
+
+    @Override
+    public void onBackPressed(){ //Botão BACK padrão do android
+        startActivity(new Intent(getApplicationContext(), MainNavBar.class)); //O efeito ao ser pressionado do botão (no caso abre a activity)
+        finishAffinity(); //Método para matar a activity e não deixa-lá indexada na pilhagem
+        return;
     }
 
     private void eventWidgets() {
+        //Botao voltar
+        /*fab_NewProd_Voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MainNavBar.class)); //O efeito ao ser pressionado do botão (no caso abre a activity)
+                finishAffinity(); //Método para matar a activity e não deixa-lá indexada na pilhagem
+                //return;
+            }
+        });*/
+
+        //ADICIONAR NOVO PRODUTO
         btn_NewPro_AdicionarProduto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 checkBox();
+                checkBox();
                 nome_produto = String.valueOf(edt_NewPro_NomeProduto.getText().toString());
-                if (chbTipoProd.equals("Unidade") || chbTipoProd.equals("Caixa")) {
-                    loadFirebase();
-                    Produto prod = new Produto();
-                    prod.setId_Produto(UUID.randomUUID().toString());
-                    prod.setNome_Produto(nome_produto);
-                    prod.setTipo_Produto(chbTipoProd);
-                    databaseReference_NewPro.child("Produto").child(prod.getId_Produto()).setValue(prod);
-                    Toast.makeText(TelaNovoProduto.this, "Produto adicionado com sucesso", Toast.LENGTH_SHORT).show();
-                    clear();
-
+                if (edt_NewPro_NomeProduto.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(TelaNovoProduto.this, "Nome de produto vazio", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(TelaNovoProduto.this, "Selecione Apenas um tipo de Produto", Toast.LENGTH_LONG).show();
+                    if ((chbTipoProd.equals("Unidade") || chbTipoProd.equals("Caixa")) && (chb_NewPro_Caixa.isChecked() || chb_NewPro_Unidade.isChecked())) {
+                        Produto prod = new Produto();
+                        prod.setId_Produto(UUID.randomUUID().toString());
+                        prod.setNome_Produto(nome_produto);
+                        prod.setTipo_Produto(chbTipoProd);
+                        databaseReference_NewPro.child("Produto").child(prod.getId_Produto()).setValue(prod);
+                        Toast.makeText(TelaNovoProduto.this, "Produto adicionado com sucesso", Toast.LENGTH_SHORT).show();
+                        clear();
+                    } else {
+                        Toast.makeText(TelaNovoProduto.this, "Selecione Apenas um tipo de Produto", Toast.LENGTH_LONG).show();
+                    }
                 }
-
             }
         });
 
+        //VERIFICAÇÃO DAS CHECKBOXs
         chb_NewPro_Caixa.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -112,13 +144,14 @@ public class TelaNovoProduto extends AppCompatActivity {
     }
 
     private void loadFirebase() {
-        if (firebaseDatabase_NewPro == null){
-            FirebaseApp.initializeApp(TelaNovoProduto.this);
-            firebaseDatabase_NewPro = FirebaseDatabase.getInstance();
-            firebaseDatabase_NewPro.setPersistenceEnabled(true);
-            databaseReference_NewPro = firebaseDatabase_NewPro.getReference();
-        }
+        FirebaseApp.initializeApp(this.getApplicationContext());
+        firebaseDatabase_NewPro = FirebaseDatabase.getInstance();
+        //firebaseDatabase_NewPro.setPersistenceEnabled(true);
+        databaseReference_NewPro = firebaseDatabase_NewPro.getReference();
+    }
 
-
+    protected void onStart() {
+        super.onStart();
+        loadFirebase();
     }
 }
